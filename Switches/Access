@@ -1,0 +1,114 @@
+#-----------------------------
+# Hostname 
+#-----------------------------
+sysname Access
+
+#-----------------------------
+# Configure Console
+#-----------------------------
+user-interface aux 0
+authentication-mode password
+set authentication password simple SWaccess!
+idle-timeout 15
+quit
+
+#-----------------------------
+# Configure SSH
+#-----------------------------
+public-key local create rsa 2048
+
+user-interface vty 0 15
+authentication-mode scheme
+protocol inbound ssh
+quit
+
+local-user admin
+password simple SWaccess!
+service-type ssh
+authorization-attribute level 3
+quit
+
+undo telnet server enable
+ssh server enable
+
+#-----------------------------
+# Configure Management IP
+#-----------------------------
+interface vlan-interface 1
+ip address 192.168.94.2 255.255.255.0
+undo shutdown
+quit
+
+#-----------------------------
+# Creating VLANs
+#-----------------------------
+vlan 10
+description AOS
+quit
+
+vlan 20
+description AOS-CX
+quit
+
+vlan 30
+description COM5
+quit
+
+vlan 40
+description Procurve
+quit
+
+vlan 50
+description COM7
+quit
+
+#-----------------------------
+# Configuring Interfaces
+#-----------------------------
+interface GigabitEthernet 1/0/21
+description To AOS
+port access VLAN 10
+quit
+
+interface GigabitEthernet 1/0/22
+description To AOS-CX
+port access VLAN 20
+quit
+
+interface GigabitEthernet 1/0/23
+description To COM5
+port access VLAN 30
+quit
+
+interface GigabitEthernet 1/0/24
+description To ProCurve
+port access VLAN 40
+quit
+
+interface Ten-GigabitEthernet 1/0/25
+description To COM7
+port access VLAN 50
+quit
+
+port-group manual off
+group-member g1/0/2 to g1/0/20
+shutdown
+group-member t1/0/26 to t1/1/4
+shutdown
+quit
+
+#-----------------------------
+# Configuring Trunks
+#-----------------------------
+interface GigabitEthernet1/0/1
+port link-type trunk
+port trunk permit vlan 10
+port trunk permit vlan 20
+port trunk permit vlan 30
+port trunk permit vlan 40
+port trunk permit vlan 50
+
+#-----------------------------
+#  Default Gateway
+#-----------------------------
+ip route-static 0.0.0.0 0.0.0.0 192.168.94.1
