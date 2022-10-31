@@ -1,8 +1,21 @@
-#----------------------------------------
-# NPS Server
-#----------------------------------------
+#========================================
+# NPS Configuration
+#========================================
+pushd nps
+reset config
+
+
+
+
 # Adds a Network Policy Server (NPS) to the list of registered server(s) in Active Directory
 add registeredserver domain="axians.local" server= "10.100.128.117" 
+
+
+
+
+#----------------------------------------
+# RADIUS Client
+#----------------------------------------
 
 
 #----------------------------------------
