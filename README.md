@@ -5,10 +5,10 @@
 
 
 
-RADIUS-NPS Server
-  Configuration script for the NPS
-Switches
-  Configuration 
+RADIUS-NPS Server  
+  Configuration script for the NPS  
+Switches  
+  Configuration   
 
 
 
