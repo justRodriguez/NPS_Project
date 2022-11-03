@@ -6,7 +6,7 @@ banner motd %
 * This device is currently in use for the AAA project within the lab network (zandbak).
 * Do NOT connect this device to any production systems!!
 * 
-* Switch: HP A5120 (COM5)
+* Switch: HP 2530-8G (AOS)
 * Author: Andres Vivas Rodriguez
 **********************************************************************************************
 %
