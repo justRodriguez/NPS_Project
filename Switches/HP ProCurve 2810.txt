@@ -33,9 +33,6 @@ console events critical
 crypto key generate ssh
 ip ssh
 no telnet-server
---
-show ip ssh
-show crypto host-public-key
 
 #-----------------------------
 # Configuring VLAN
@@ -64,9 +61,9 @@ ip default-gateway 192.168.40.1
 # Configuring NTP
 #-----------------------------
 timesync sntp
-sntp unicast				(point-to-point)
+sntp unicast				    #(point-to-point)
 sntp server 10.100.128.117
-time timezone +120 			(minutes, GMT +2)
+time timezone +120 			#(minutes, GMT +2)
 
 #-----------------------------
 # Configuring DNS
@@ -102,6 +99,3 @@ logging facility syslog
 # Saving Configuration
 #-----------------------------
 write memory
-
-
-
