@@ -107,6 +107,7 @@ port trunk permit vlan 20
 port trunk permit vlan 30
 port trunk permit vlan 40
 port trunk permit vlan 50
+quit
 
 #-----------------------------
 #  Default Gateway
