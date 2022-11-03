@@ -1,9 +1,6 @@
 ## NPS Project
 > **Author:**       Andres Vivas Rodriguez  
-> **Institution:**  HBO  
-> **Education:**    Network & Security Engineering
-  
-  
+
   
   
   
