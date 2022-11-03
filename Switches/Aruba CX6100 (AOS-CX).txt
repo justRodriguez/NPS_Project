@@ -1,5 +1,5 @@
 login(default):	admin		<blank>
-login(new):		admin		SWaos-cx!
+login(new):		  admin		SWaos-cx!
 
 banner motd ^
 ***********************************************************************************************
@@ -7,7 +7,6 @@ banner motd ^
 * Do NOT connect this device to any production systems!!
 * 
 * Switch: Aruba CX6100
-*
 * Author: Andres Vivas Rodriguez
 **********************************************************************************************
 ^
@@ -19,7 +18,7 @@ user admin group administrators password SWaos-cx!
 #-----------------------------
 # Configuring SSH
 #-----------------------------
-ssh server vrf default	(enabled by default)
+ssh server vrf default	      #(enabled by default)
 
 #-----------------------------
 # Configuring VLAN
