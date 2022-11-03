@@ -5,14 +5,7 @@
 
 
 
-RADIUS-NPS Server  
-  Configuration script for the NPS  
-Switches  
-  Configuration   
 
-
-
-![Image](C:\Users\a.vivasrodriguez\OneDrive - VINCI Energies\Documenten\image.png)
 
 
 
