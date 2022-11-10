@@ -2,7 +2,9 @@
   
 - hosts: AOS
     remote_user: admin
-
+    collections:
+      - arubanetworks.aos_switch
+    
   tasks:
     -name: Configure RADIUS aaa
       arubaoss_command:
