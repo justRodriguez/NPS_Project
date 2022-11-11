@@ -1,14 +1,14 @@
 --- name: syslog
   
 - hosts: AOS
-    remote_user: admin
     collections:
       - arubanetworks.aos_switch
-    
+  vars:
+    ansible_connection: network_cli
   tasks:
     -name: Configure syslog server
       arubaoss_command:
-        commands: logging 10.100.128.142
-        commands: logging severity info
-        commands: logging notify running-config-change
+        commands: ['logging 10.100.128.142']
+        commands: ['logging severity info']
+        commands: ['logging notify running-config-change']
       
