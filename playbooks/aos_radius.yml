@@ -1,17 +1,18 @@
---- name: RADIUS_NPS
-  
+---
 - hosts: AOS
+  remote_user: admin
     collections:
       - arubanetworks.aos_switch
   vars: 
     asible_connection: network_cli
+    
   tasks:
-    -name: Configure RADIUS aaa
+    - name: Configure RADIUS aaa
       arubaoss_command:
         commands: ['radius-server host 10.100.128.117 auth-port 1812 acct-port 1813 key secretSWaos!']
         commands: ['aaa authentication login privilege-mode']
       
-    -name: Configure RADIUS sso
+    - name: Configure RADIUS sso
       arubaoss_command:
         commands: ['aaa authentication console login radius local']
         commands: ['aaa authentication console enable radius local']
@@ -22,7 +23,7 @@
         commands: ['aaa authentication ssh login radius local']
         commands: ['aaa authentication ssh enable radius local']
   
-    -name: Configure RADIUS accounting
+    - name: Configure RADIUS accounting
       arubaoss_command:
         commands: ['aaa accounting network start-stop radius']
         commands: ['aaa accounting exec start-stop radius']
