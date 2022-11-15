@@ -1,7 +1,6 @@
 [AOS]
 192.168.10.2
 
-
 all:
   hosts:
     AOS:
