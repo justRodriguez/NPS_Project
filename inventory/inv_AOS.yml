@@ -1,3 +1,7 @@
+[defaults]
+NETWORK_GROUP_MODULES=arubaoss
+
+
 [AOS]
 192.168.10.2
 
