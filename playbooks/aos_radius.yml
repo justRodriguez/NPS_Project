@@ -1,11 +1,9 @@
 ---
 - hosts: AOS
-  remote_user: admin
-    collections:
-      - arubanetworks.aos_switch
+  collections:
+    - arubanetworks.aos_switch
   vars: 
     asible_connection: network_cli
-    
   tasks:
     - name: Configure RADIUS aaa
       arubaoss_command:
