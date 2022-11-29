@@ -1,5 +1,5 @@
-login(default): <blank> <blank>
-login(new):     admin   SWcom5!
+ID(old): <blank> <blank>
+ID(new): admin   SWcom5!
 
 
 header login %
