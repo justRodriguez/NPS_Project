@@ -1,5 +1,6 @@
-login(default):	admin		<blank>
-login(new):		admin		SWaos-cx!
+login(default): admin   <blank>
+login(new):     admin   SWaos-cx!
+
 
 banner motd ^
 ***********************************************************************************************
@@ -7,7 +8,6 @@ banner motd ^
 * Do NOT connect this device to any production systems!!
 * 
 * Switch: Aruba CX6100
-*
 * Author: Andres Vivas Rodriguez
 **********************************************************************************************
 ^
@@ -90,7 +90,6 @@ aaa accounting all-mgmt default start-stop group radius local
 # Command Logging
 -----------------------------
 logging 10.100.128.142 include-auditale-events
-
 
 -----------------------------
 # Saving Configuration
