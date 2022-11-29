@@ -1,4 +1,6 @@
-user:  admin  SWprocurve!
+login(default): <blank> <blank>
+login(new):     admin   SWprocurve!
+
 
 banner motd %
 *********************************************************************************
