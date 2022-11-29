@@ -1,0 +1,141 @@
+SWcom5!
+
+header login %
+***********************************************************************************************
+* This device is currently in use for the AAA project within the lab network (zandbak).
+* Do NOT connect this device to any production systems!!
+* 
+* Switch: HP A5120 (COM5)
+*
+* Author: Andres Vivas Rodriguez
+**********************************************************************************************
+%
+-----------------------------
+# Hostname 
+-----------------------------
+sysname COM5
+
+-----------------------------
+# Configure Console
+-----------------------------
+user-interface aux 0
+authentication-mode password
+set authentication password simple SWcom5!
+idle-timeout 15
+
+-----------------------------
+# Configure SSH
+-----------------------------
+public-key local create [rsa] [2048]
+--
+user-interface vty 0 15
+authentication-mode scheme
+protocol inbound ssh
+quit
+--
+local-user admin
+password simple SWcom5!
+service-type ssh
+authorization-attribute level 3
+quit
+--
+undo telnet server enable
+ssh server enable
+--
+display ssh server status
+display public-key local rsa public
+
+-----------------------------
+# Configuring VLAN
+-----------------------------
+vlan 30
+description COM5
+quit
+
+interface vlan-interface 30
+description COM5
+ip address 192.168.30.2 255.255.255.0
+quit
+
+-----------------------------
+# Configuring Interfaces
+-----------------------------
+interface GigabitEthernet 1/0/1
+description To Access
+port access vlan 30
+quit
+
+interface 1/1/5
+description To User
+vlan access 30
+no shutdown
+quit
+
+#--- Disable Unused Ports ---#
+port-group manual off
+group-member g1/0/2 to g1/0/4
+shutdown
+group-member g1/0/6 to g1/0/48
+shutdown
+quit
+
+-----------------------------
+#  Default Gateway
+-----------------------------
+ip route-static 0.0.0.0 0.0.0.0 192.168.30.1
+
+-----------------------------
+# Configuring NTP
+-----------------------------
+ntp-service unicast-server 10.100.128.117
+clock protocol ntp
+clock timezone CET add 01:00:00
+clock summer-time CEST repeating 02:00:00 2000 March last Sunday 02:00:00 2000 October last Sunday 01:00:00
+
+ 
+-----------------------------
+# Configuring DNS
+-----------------------------
+dns server 10.100.128.117
+dns domain axians.local
+
+-----------------------------
+# Configuring RADIUS
+-----------------------------
+radius scheme NPS01
+primary authentication 10.100.128.117 key simple secretSWcom5!
+primary accounting 10.100.128.117 key simple secretSWcom5!
+user-name-format without-domain
+server-type extended
+nas-ip 192.168.30.2
+quit
+--
+domain axians.local
+authentication default radius-scheme NPS01 local
+authorization default radius-scheme NPS01 local
+accounting default radius-scheme NPS01 local
+quit
+domain default enable axians.local
+--
+user-interface aux 0
+authentication-mode scheme
+
+user-interface vty 0 15
+authentication-mode scheme
+user privilige level 3
+quit
+---
+display radius scheme NPS01
+display radius statistics
+
+-----------------------------
+# Command Logging
+-----------------------------
+info-center loghost 10.100.128.142
+info-center timestamp loghost date
+
+-----------------------------
+# Saving Configuration
+-----------------------------
+save		OR
+s s f

@@ -1,0 +1,109 @@
+user:  <blank>
+pwd: SWprocurve!
+
+banner motd %
+*********************************************************************************
+* This device is currently in use for the AAA project within the lab network (zandbak)
+* 
+* Switch: HP ProCurve 2810
+* Author: Andres Vivas Rodriguez
+*********************************************************************************
+%
+-----------------------------
+# Hostname 
+-----------------------------
+hostname ProCurve 
+setup 				(access to GUI)
+
+-----------------------------
+# Configure Console
+-----------------------------
+password manager plaintext SWprocurve!
+password operator plaintext SWprocurve!
+---
+console terminal vt100
+console baud-rate 19200 
+console flow-control none 
+console inactivity-timer 15 
+console events critical
+
+-----------------------------
+# Configure SSH
+-----------------------------
+crypto key generate ssh
+ip ssh
+no telnet-server
+--
+show ip ssh
+show crypto host-public-key
+
+-----------------------------
+# Configuring VLAN
+-----------------------------
+vlan 40
+name Procurve
+ip address 192.168.40.2 255.255.255.0
+untagged ethernet 1
+exit
+
+-----------------------------
+# Configuring Interfaces
+-----------------------------
+#--- Disable Unused Ports ---#
+interface 2-4
+disable
+interface 6-24
+disable
+
+-----------------------------
+#  Default Gateway
+-----------------------------
+ip default-gateway 192.168.40.1
+
+
+-----------------------------
+# Configuring NTP
+-----------------------------
+timesync sntp
+sntp unicast				(point-to-point)
+sntp server 10.100.128.117
+time timezone +120 			(minutes, GMT +2)
+
+-----------------------------
+# Configuring DNS
+-----------------------------
+!!! Not supported !!!
+
+-----------------------------
+# Configuring RADIUS
+-----------------------------
+radius-server host 10.100.128.117 key secretSWprocurve!
+aaa authentication login privilege-mode
+--
+aaa authentication console login radius local
+aaa authentication console enable radius local
+aaa authentication telnet login radius local
+aaa authentication telnet enable radius local 
+aaa authentication web login radius local 
+aaa authentication web enable radius local 
+aaa authentication ssh login radius local 
+aaa authentication ssh enable radius local
+--
+aaa accounting network start-stop radius
+aaa accounting exec start-stop radius
+aaa accounting system start-stop radius
+
+-----------------------------
+# Command Logging
+-----------------------------
+logging 10.100.128.142 
+logging facility syslog
+
+
+-----------------------------
+# Saving Configuration
+-----------------------------
+write memory
+
+
+
