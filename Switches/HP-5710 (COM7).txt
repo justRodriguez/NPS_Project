@@ -28,7 +28,7 @@ idle-timeout 15
 -----------------------------
 # Configure SSH
 -----------------------------
-public-key local create rsa [2048]
+public-key local create rsa 2048
 --
 user-interface vty 0 63 
 authentication-mode scheme 
