@@ -147,5 +147,4 @@ info-center timestamp loghost date
 -----------------------------
 # Saving Configuration
 -----------------------------
-save		OR
-s s f
+save		(OR  s s f)
