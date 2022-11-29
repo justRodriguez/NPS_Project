@@ -1,5 +1,4 @@
-user:  <blank>
-pwd: SWprocurve!
+user:  admin  SWprocurve!
 
 banner motd %
 *********************************************************************************
