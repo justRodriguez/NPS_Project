@@ -7,10 +7,10 @@ header login %
 * Do NOT connect this device to any production systems!!
 * 
 * Switch: HP 5710 series (COM7)
-*
 * Author: Andres Vivas Rodriguez
 **********************************************************************************************
 %
+
 -----------------------------
 # Hostname 
 -----------------------------
