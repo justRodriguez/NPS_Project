@@ -1,5 +1,5 @@
-user: admin pwd: NULL	(default)
-user: admin	pwd: SWaccess!
+login(old):   admin   <blank>	
+lopgin(new):  admin   SWaccess!
 
 -----------------------------
 # Hostname 
@@ -117,3 +117,8 @@ port trunk permit vlan 50
 #  Default Gateway
 -----------------------------
 ip route-static 0.0.0.0 0.0.0.0 192.168.94.1
+
+-----------------------------
+# Saving Configuration
+-----------------------------
+save		
