@@ -1,4 +1,6 @@
-SWcom5!
+login(default): <blank> <blank>
+login(new):     admin   SWcom5!
+
 
 header login %
 ***********************************************************************************************
@@ -6,7 +8,6 @@ header login %
 * Do NOT connect this device to any production systems!!
 * 
 * Switch: HP A5120 (COM5)
-*
 * Author: Andres Vivas Rodriguez
 **********************************************************************************************
 %
