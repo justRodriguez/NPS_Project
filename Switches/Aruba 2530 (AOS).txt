@@ -1,5 +1,6 @@
-login(default):	admin		admin
-login(new):		admin		SWaos!
+# login(default):	admin		admin
+# login(new):		  admin		SWaos!
+
 
 banner motd %
 ***********************************************************************************************
