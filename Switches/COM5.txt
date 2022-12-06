@@ -1,7 +1,6 @@
 ID(old): <blank> <blank>
 ID(new): admin   SWcom5!
 
-
 header login %
 ***********************************************************************************************
 * This device is currently in use for the AAA project within the lab network (zandbak).
@@ -92,7 +91,6 @@ ntp-service unicast-server 10.100.128.117
 clock protocol ntp
 clock timezone CET add 01:00:00
 clock summer-time CEST repeating 02:00:00 2000 March last Sunday 02:00:00 2000 October last Sunday 01:00:00
-
  
 -----------------------------
 # Configuring DNS
