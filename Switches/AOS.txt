@@ -1,7 +1,6 @@
 # login(default): admin   admin
 # login(new):     admin   SWaos!
 
-
 banner motd %
 ***********************************************************************************************
 * This device is currently in use for the AAA project within the lab network (zandbak).
@@ -56,6 +55,7 @@ interface 1
 name To_Access
 interface 5
 name To_User
+quit
 
 #--- Disable Unused Ports ---#
 interface 2-4
@@ -89,7 +89,7 @@ ip dns server-address priority 1 10.100.128.117
 -----------------------------
 radius-server host 10.100.128.117 auth-port 1812 acct-port 1813 key secretSWaos!
 aaa authentication login privilege-mode
---
+---
 aaa authentication console login radius local
 aaa authentication console enable radius local
 aaa authentication telnet login radius local
@@ -98,7 +98,7 @@ aaa authentication web login radius local
 aaa authentication web enable radius locald
 aaa authentication ssh login radius local 
 aaa authentication ssh enable radius local
---
+---
 aaa accounting network start-stop radius
 aaa accounting exec start-stop radius
 aaa accounting system start-stop radius
