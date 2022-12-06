@@ -105,6 +105,3 @@ logging facility syslog
 # Saving Configuration
 -----------------------------
 write memory
-
-
-
