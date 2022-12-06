@@ -1,7 +1,6 @@
 login(default): admin   <blank>
 login(new):     admin   SWaos-cx!
 
-
 banner motd ^
 ***********************************************************************************************
 * This device is currently in use for the AAA project within the lab network (zandbak).
@@ -80,10 +79,9 @@ ip dns server-address 10.100.128.117
 radius-server host 10.100.128.117 port 1812 acct-port 1813 key plaintext secretSWaos-cx!
 radius-server auth-type chap
 aaa authentication allow-fail-through
---
+---
 aaa authentication login default group radius local
-aaa authentication login ssh group radius local
---
+---
 aaa accounting all-mgmt default start-stop group radius local
 
 -----------------------------
