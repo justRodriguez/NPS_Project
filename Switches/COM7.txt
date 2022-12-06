@@ -136,13 +136,11 @@ quit
 display radius scheme NPS01
 display radius statistics
 
-
 -----------------------------
 # Command Logging
 -----------------------------
 info-center loghost 10.100.128.142
 info-center timestamp loghost date
-
 
 -----------------------------
 # Saving Configuration
